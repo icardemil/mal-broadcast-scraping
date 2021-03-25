@@ -36,12 +36,11 @@ def getSerie(item):
     serieDict["mal_url"] = item["url"]
     
     #Algunas series no cuentan con toda la información del broadcast
+    serieDict["day"] = info[1]
     if len(info) == 5:
-        serieDict["day"] = info[1]
         serieDict["hour"] = info[3]
         serieDict["time"] = info[4].replace('(','').replace(')','')
     else:
-        serieDict["day"] = info[1]
         serieDict["hour"] = ''
         serieDict["time"] = ''
     return serieDict
