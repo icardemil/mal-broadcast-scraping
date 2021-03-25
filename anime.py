@@ -9,11 +9,13 @@ from lxml import html
 import pandas as pd
 import requests
 
-#days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
-days = ["monday"]
+#Variables
+days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 output = open("anime_schedule.json","w",encoding="utf-8")
 series = []
 
+#Obtiene la serie y realiza el proceso de scraping
+#Retorna el diccionario de la serie
 def getSerie(item):
     #Inicializa el diccionario
     serieDict = {}
@@ -22,7 +24,6 @@ def getSerie(item):
     pageContent = requests.get(item["url"])
     pageContent.encoding = "utf-8"
     soup = BeautifulSoup(pageContent.text,"lxml")
-    
     #Busca la información del broadcast
     serieData = soup.find("div",{"id":"content"}).find("td",{"class":"borderClass"}).findAll("div",{"class":"spaceit"})
     #La segunda posición contiene la información del broadcast
@@ -33,14 +34,22 @@ def getSerie(item):
     serieDict["img_url"] = item["image_url"]
     serieDict["synopsis"] = item["synopsis"]
     serieDict["mal_url"] = item["url"]
-    serieDict["day"] = info[1]
-    serieDict["hour"] = info[3]
-    serieDict["time"] = info[4].replace('(','').replace(')','')
+    
+    #Algunas series no cuentan con toda la información del broadcast
+    if len(info) == 5:
+        serieDict["day"] = info[1]
+        serieDict["hour"] = info[3]
+        serieDict["time"] = info[4].replace('(','').replace(')','')
+    else:
+        serieDict["day"] = info[1]
+        serieDict["hour"] = ''
+        serieDict["time"] = ''
     return serieDict
 
 #Obtiene el horario de series que provee la API de Jikan y crea un nuevo diccionario
 for day in days:
     req = requests.get('https://api.jikan.moe/v3/schedule/%s' % day)
+    print(day)
     if req.status_code == 200:
         res = req.json()
         for item in res[day]:
@@ -51,4 +60,4 @@ for day in days:
 data = pd.DataFrame(series)
 data.to_json(output,orient="records")
 output.close()
-print(data)
+print("Fin")
