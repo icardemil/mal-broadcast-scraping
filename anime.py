@@ -11,6 +11,7 @@ import requests
 
 #days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 days = ["monday"]
+output = open("anime_schedule.json","w",encoding="utf-8")
 series = []
 
 def getSerie(item):
@@ -23,9 +24,9 @@ def getSerie(item):
     soup = BeautifulSoup(pageContent.text,"lxml")
     
     #Busca la información del broadcast
-    data = soup.find("div",{"id":"content"}).find("td",{"class":"borderClass"}).findAll("div",{"class":"spaceit"})
+    serieData = soup.find("div",{"id":"content"}).find("td",{"class":"borderClass"}).findAll("div",{"class":"spaceit"})
     #La segunda posición contiene la información del broadcast
-    info = data[2].text.split()
+    info = serieData[2].text.split()
     
     #Asigna valores al diccionario
     serieDict["title"] = item["title"]
@@ -37,6 +38,7 @@ def getSerie(item):
     serieDict["time"] = info[4].replace('(','').replace(')','')
     return serieDict
 
+#Obtiene el horario de series que provee la API de Jikan y crea un nuevo diccionario
 for day in days:
     req = requests.get('https://api.jikan.moe/v3/schedule/%s' % day)
     if req.status_code == 200:
@@ -46,4 +48,7 @@ for day in days:
     else:
         print("Error en la petición")
 
-print(series)
+data = pd.DataFrame(series)
+data.to_json(output,orient="records")
+output.close()
+print(data)
