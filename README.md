@@ -1,5 +1,5 @@
 # MAL Broadcast Scraping 📅
-Utiliza la API de [Jikan](https://jikan.moe/) para obtener infomación sobre los animes de temporada y agrega el horario de emisión al modelo de la serie, por medio de web scraping en su perfil de MyAnimeList (MAL). Retorna un archivo JSON con el resultado obtenido.
+Utiliza la API de [Jikan](https://jikan.moe/) para obtener información sobre los animes de temporada y agrega el horario de emisión al modelo de la serie, por medio de web scraping en su perfil de MyAnimeList (MAL). Retorna un archivo JSON con el resultado obtenido.
 
 ## Modelo 📄
 | Atributo 	| Contenido 	| Ejemplo 	| Fuente 	|
@@ -18,4 +18,4 @@ Utiliza la API de [Jikan](https://jikan.moe/) para obtener infomación sobre los
  * lxml
 
 ## Resultado 💙
-[Descargar el JSON para la temporada de Inivierno/Winter 2021.](https://github.com/icardemil64/mal-broadcast-scraping/blob/master/anime_schedule.json)
+[Descargar el JSON para la temporada de Invierno/Winter 2021.](https://github.com/icardemil64/mal-broadcast-scraping/blob/master/anime_schedule.json)
