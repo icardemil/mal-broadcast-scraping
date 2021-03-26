@@ -4,12 +4,12 @@ Utiliza la API de [Jikan](https://jikan.moe/) para obtener infomación sobre los
 ## Modelo 📄
 | Atributo 	| Contenido 	| Ejemplo 	| Fuente 	|
 |-	|-	|-	|-	|
-| title 	| Nombre de anime 	| Shingeki no Kyojin: The Final Season 	| Jikan 	|
-| img_url 	| Imagen de anime 	| https://cdn.myanimelist.net/images/anime/1000/110531.jpg 	| Jikan 	|
-| synopsis 	| Resumen de anime 	| Gabi Braun and Falco Gri… [Written by MAL Rewrite] 	| Jikan 	|
-| mal_url 	| Página de anime en MyAnimeList 	| https://myanimelist.net/anime/40028/Shingeki_no_Kyojin__The_Final_Season 	| Jikan 	|
-| day 	| Día de emisión 	| Mondays 	| Jikan 	|
-| hour 	| Hora de emisión 	| 00:10:00 	| Scraping MAL 	|
+| title 	| Nombre de anime 	| WIXOSS Diva(A)Live 	| Jikan 	|
+| img_url 	| Imagen de anime 	| https://cdn.myanimelist.net/images/anime/1779/110807.jpg 	| Jikan 	|
+| synopsis 	| Resumen de anime 	| The story moves the… (Source: ANN) 	| Jikan 	|
+| mal_url 	| Página de anime en MyAnimeList 	| https://myanimelist.net/anime/41521/WIXOSS_DivaALive 	| Jikan 	|
+| day 	| Día de emisión 	| Saturdays 	| Jikan 	|
+| hour 	| Hora de emisión 	| 00:30:00 	| Scraping MAL 	|
 | time 	| Zona horaria 	| JST 	| Scraping MAL 	|
 
 ## Requisitos ✔️
