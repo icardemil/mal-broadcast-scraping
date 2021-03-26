@@ -2,7 +2,7 @@
 """
 Created on Wed Mar 24 20:55:19 2021
 
-@author: icard
+@author: @icarde64
 """
 from bs4 import BeautifulSoup
 from lxml import html
