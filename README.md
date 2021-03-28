@@ -1,4 +1,4 @@
-# MAL Broadcast Scraping 📅
+# MAL Broadcast Scraper ⛏️
 Utiliza la API de [Jikan](https://jikan.moe/) para obtener información sobre los animes de temporada y agrega el horario de emisión al modelo de la serie, por medio de web scraping en su perfil de MyAnimeList (MAL). Retorna un archivo JSON con el resultado obtenido.
 
 ## Modelo 📄
